@@ -1,0 +1,11 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li id="HvsA" [class.active]="playGame===gameType.HUMAN_VS_AI" (click)="playHumanVSAIgame()"><a href="#">Human vs AI</a></li>
+      <li id="AvsA" [class.active]="playGame===gameType.AI_VS_AI" (click)="playAIvsAIgame()"><a href="#">AI vs AI</a></li>
+    </ul>
+  </div>
+</nav>
+
+<rps-game [game]="game1" [hidden]="playGame!==gameType.HUMAN_VS_AI"></rps-game>
+<rps-game [game]="game2" [hidden]="playGame!==gameType.AI_VS_AI"></rps-game>

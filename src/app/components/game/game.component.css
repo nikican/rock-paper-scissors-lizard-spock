@@ -1,0 +1,10 @@
+.gesture{
+    font-size: 3em;
+    margin-left: 2px;
+    margin-right: 2px;
+    cursor: pointer;
+}
+
+#resetBtn{
+    margin-top: 20px;
+}

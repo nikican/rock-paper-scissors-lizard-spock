@@ -1,0 +1,5 @@
+<div>
+  <h1 *ngIf="player">{{player.name}}</h1>
+  <i *ngIf="gesture" class="{{gesture.image}}" aria-hidden="true"></i>
+  <p *ngIf="!gesture" class="placeHolderMessage">... is thinking.</p>
+</div>

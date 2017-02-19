@@ -1,0 +1,9 @@
+export { RandomStrategy } from './random-strategy';
+export { Player } from './player';
+export { AIPlayer } from './ai-player';
+export { HumanPlayer } from './human-player';
+export { GameType } from './game-type.enum';
+export { GestureType } from './gesture-type';
+export { Gesture } from './gesture';
+export { GameStrategy } from './game-strategy';
+export { Game } from './game';
