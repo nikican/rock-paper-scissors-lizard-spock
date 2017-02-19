@@ -50,6 +50,13 @@ describe('AppComponent', () => {
     });
   });
 
+  it('should have 2 game components components', () => {
+    const debugelements = fixture.debugElement.queryAll(By.css('rps-game'));
+
+    expect(debugelements.length).toBe(2);
+  });
+
+
   describe('AI vs AI button', () => {
     beforeEach(() => {
       debugElement = fixture.debugElement.query(By.css('#AvsA'));
@@ -67,4 +74,5 @@ describe('AppComponent', () => {
       expect(component.playAIvsAIgame).toHaveBeenCalled();
     });
   });
+
 });
