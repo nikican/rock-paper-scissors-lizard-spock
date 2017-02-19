@@ -17,7 +17,7 @@
       <i id="gesture" *ngFor="let gesture of game.gestures" class="{{gesture.image}} gesture" aria-hidden="true" (click)="onGestureClicked(gesture)"></i>
     </div>
     <div *ngIf="!isHumanVSAI()" class="col-xs-12 text-center">
-      <button id="AIfightBtn" type="button" class="btn btn-success" (click)="onMakeAIsFightClicked()">Make AI's fight!</button>
+      <button id="AIfightBtn" type="button" class="btn btn-success" (click)="onMakeAIsFightClicked()">Make AIs fight!</button>
     </div>
   </div>
 
