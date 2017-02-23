@@ -23,18 +23,20 @@ export class AppComponent implements OnInit {
   constructor(public appService: AppService) { }
 
   ngOnInit() {
+    this.registerListeners();
+
     this.appService.initialize();
 
     this.game1 = this.appService.humanVsAIgame;
     this.game2 = this.appService.AIvsAIgame;
+  }
 
-    // listen for changes of 'playGame' propery of service
+  registerListeners(): void {
+    // listen for changes of 'playGame$' propery of service
     this.appService.playGame$.subscribe(
       playGame => {
         this.playGame = playGame;
       });
-
-    this.playHumanVSAIgame();
   }
 
   isHumanVSAI(): boolean {

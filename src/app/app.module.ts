@@ -5,6 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { AppService } from './app.service';
+import { LocalStorageService } from './local-storage-service/local-storage.service';
 import { GameComponent, PlayerComponent, ScoreboardComponent } from './components';
 
 
@@ -20,7 +21,7 @@ import { GameComponent, PlayerComponent, ScoreboardComponent } from './component
     FormsModule,
     HttpModule
   ],
-  providers: [AppService],
+  providers: [AppService, LocalStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

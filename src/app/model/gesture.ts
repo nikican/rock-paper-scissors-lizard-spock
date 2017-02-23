@@ -1,14 +1,14 @@
-import { GestureType } from './gesture-type';
+import { Serializable } from './serializable';
+import { GestureType } from './gesture-type.enum';
 
-export class Gesture {
+export class Gesture implements Serializable<Gesture> {
+    __name__ = Gesture.name;
+
     private _name: string;
-    private _gestureType: GestureType;
-    private _image: string;
 
-    constructor(gestureType: GestureType, image?: string) {
-        this._gestureType = gestureType;
-        this._image = image;
-    }
+    private _gestureType: GestureType;
+
+    private _image: string;
 
     get gestureType(): GestureType {
         return this._gestureType;
@@ -20,5 +20,17 @@ export class Gesture {
 
     get image(): string {
         return this._image;
+    }
+
+    constructor(gestureType?: GestureType, image?: string) {
+        this._gestureType = gestureType;
+        this._image = image;
+    }
+
+    deserialize(input): Gesture {
+        this._gestureType = input._gestureType;
+        this._image = input._image;
+
+        return this;
     }
 }

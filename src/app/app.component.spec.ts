@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement, NO_ERRORS_SCHEMA } from '@angular/core';
 
+import { LocalStorageService } from './local-storage-service/local-storage.service';
 import { AppService } from './app.service';
 import { AppComponent } from './app.component';
 
@@ -16,7 +17,7 @@ describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [AppComponent],
-      providers: [AppService],
+      providers: [AppService, LocalStorageService],
       schemas: [NO_ERRORS_SCHEMA]
     })
       .compileComponents();

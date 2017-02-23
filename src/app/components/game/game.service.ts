@@ -1,3 +1,4 @@
+import { LocalStorageService } from '../../local-storage-service/local-storage.service';
 import { Injectable } from '@angular/core';
 
 import { RandomStrategy, HumanPlayer, GameType, AIPlayer, Gesture, GestureType, Game } from '../../model';
@@ -5,10 +6,10 @@ import { RandomStrategy, HumanPlayer, GameType, AIPlayer, Gesture, GestureType, 
 @Injectable()
 export class GameService {
 
-  //serves as model for component
+  // serves as model for component
   game: Game;
 
-  constructor() {
+  constructor(private localStorageService: LocalStorageService) {
   }
 
   playerChoseGesture(chosenGesture: Gesture): void {
@@ -32,10 +33,11 @@ export class GameService {
     const result = this.determineRoundResult(this.game.chosenGesture1, this.game.chosenGesture2);
 
     this.publishRoundResult(result);
+
+    this.saveGame();
   }
 
   determineRoundResult(gesture1: Gesture, gesture2: Gesture): number {
-
     const numOfGestures: number = this.game.gestures.length;
 
     // algorithm is relying on proper order of gesture types in GestureType enum
@@ -85,5 +87,14 @@ export class GameService {
     this.game.player2Score = 0;
 
     this.game.roundResultMessage = this.game.defaultRoundResultMessage;
+  }
+
+  saveGame() {
+    this.localStorageService.saveGame(this.game.gameType, this.game);
+  }
+
+  resetAndSaveGame() {
+    this.resetGame();
+    this.saveGame();
   }
 }

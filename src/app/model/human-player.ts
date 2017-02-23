@@ -1,18 +1,17 @@
-import { Gesture } from './gesture';
-import { Player } from './player';
+import { Gesture, GameStrategy, Player } from './';
 
 export class HumanPlayer extends Player {
-    private _gesture: Gesture;
+    __name__ = HumanPlayer.name;
 
-    constructor() {
-        super('Human');
-    }
-
-    get gesture(): Gesture {
-        return this._gesture;
+    constructor(strategy?: GameStrategy) {
+        super('Human', strategy);
     }
 
     choseGesture(value: Gesture) {
         this._gesture = value;
+    }
+
+    deserialize(input): HumanPlayer {
+        return super.deserialize(input);
     }
 }

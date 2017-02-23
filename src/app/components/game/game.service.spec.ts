@@ -1,6 +1,7 @@
 /* tslint:disable:no-unused-letiable */
 import { TestBed, async, inject } from '@angular/core/testing';
 
+import { LocalStorageService } from '../../local-storage-service/local-storage.service';
 import { AIPlayer, Game, GameType, Gesture, GestureType, HumanPlayer, RandomStrategy } from '../../model';
 import { GameService } from './game.service';
 
@@ -10,17 +11,17 @@ describe('GameService', () => {
   const mockHumanVsAIgame = new Game(GameType.HUMAN_VS_AI,
     new HumanPlayer(),
     new AIPlayer(new RandomStrategy(this.gestures)),
-    [
-      new Gesture(GestureType.ROCK, 'fa fa-hand-rock-o'),
-      new Gesture(GestureType.PAPER, 'fa fa-hand-paper-o'),
-      new Gesture(GestureType.SCISSORS, 'fa fa-hand-scissors-o'),
-      new Gesture(GestureType.LIZARD, 'fa fa-hand-lizard-o'),
-      new Gesture(GestureType.SPOCK, 'fa fa-hand-spock-o')]
+    [new Gesture(GestureType.ROCK, 'fa fa-hand-rock-o'),
+    new Gesture(GestureType.PAPER, 'fa fa-hand-paper-o'),
+    new Gesture(GestureType.SCISSORS, 'fa fa-hand-scissors-o'),
+    new Gesture(GestureType.LIZARD, 'fa fa-hand-lizard-o'),
+    new Gesture(GestureType.SPOCK, 'fa fa-hand-spock-o')
+    ]
   );
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [GameService]
+      providers: [GameService, LocalStorageService]
     });
   });
 

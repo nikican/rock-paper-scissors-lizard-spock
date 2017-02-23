@@ -37,7 +37,7 @@ export class GameComponent implements OnInit {
   }
 
   resetGame(): void {
-    this.gameService.resetGame();
+    this.gameService.resetAndSaveGame();
   }
 
   onMakeAIsFightClicked() {

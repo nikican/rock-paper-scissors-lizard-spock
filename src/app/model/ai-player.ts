@@ -1,20 +1,17 @@
-import { GameStrategy } from './game-strategy';
-import { GestureType } from './gesture-type';
-import { Gesture } from './gesture';
-import { Player } from './player';
+import { GameStrategy, Player } from './';
 
 export class AIPlayer extends Player {
-    private _gesture: Gesture;
+    __name__ = AIPlayer.name;
 
-    constructor(public strategy: GameStrategy) {
+    constructor(strategy?: GameStrategy) {
         super('AI', strategy);
-    }
-
-    get gesture(): Gesture {
-        return this._gesture;
     }
 
     choseGesture() {
         this._gesture = this.strategy.choseGesture();
+    }
+
+    deserialize(input): AIPlayer {
+        return super.deserialize(input);
     }
 }

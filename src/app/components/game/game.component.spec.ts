@@ -3,6 +3,7 @@ import { By } from '@angular/platform-browser';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { DebugElement, NO_ERRORS_SCHEMA } from '@angular/core';
 
+import { LocalStorageService } from '../../local-storage-service/local-storage.service';
 import { GameComponent } from './game.component';
 import { GameService } from './game.service';
 import { AIPlayer, Game, GameType, Gesture, GestureType, HumanPlayer, RandomStrategy } from '../../model';
@@ -30,7 +31,7 @@ describe('GameComponent', () => {
       declarations: [
         GameComponent
       ],
-      providers: [GameService],
+      providers: [GameService, LocalStorageService],
       schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents();
 
